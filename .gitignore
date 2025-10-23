@@ -38,3 +38,7 @@ coverage
 
 # API Keys Backup (IMPORTANT: Keep secure)
 API_KEYS_BACKUP.txt
+**/API_KEYS_BACKUP.txt
+
+# Nested project folder (shouldn't be in repo)
+efolio/
