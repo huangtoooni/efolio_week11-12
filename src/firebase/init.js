@@ -10,10 +10,18 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 }
 
+// Initialize Firebase only if config is available
+let db = null
 
-const app = initializeApp(firebaseConfig)
-
-
-const db = getFirestore()
+try {
+  if (firebaseConfig.apiKey) {
+    const app = initializeApp(firebaseConfig)
+    db = getFirestore(app)
+  } else {
+    console.warn('Firebase configuration not found. Some features may not work.')
+  }
+} catch (error) {
+  console.error('Error initializing Firebase:', error)
+}
 
 export default db
